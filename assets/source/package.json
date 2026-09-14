@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node run.mjs",
-    "build": "node run.mjs build",
-    "preview": "vite preview"
+    "dev": "node run.mjs dev --host 0.0.0.0",
+    "build": "BASE_PATH=/jessielu.github.io/ node run.mjs build",
+    "build:local": "node run.mjs build",
+    "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
     "react": "19.2.6",
