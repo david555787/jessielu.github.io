@@ -1,4 +1,4 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 import {resolve} from 'node:path';
-export default defineConfig({base:process.env.BASE_PATH||'/',plugins:[react()],resolve:{alias:{'@':resolve(__dirname,'.')}},build:{rollupOptions:{input:{home:resolve(__dirname,'index.html'),about:resolve(__dirname,'about/index.html'),experience:resolve(__dirname,'experience/index.html'),projects:resolve(__dirname,'projects/index.html'),contact:resolve(__dirname,'contact/index.html')}}}});
+export default defineConfig({base:process.env.BASE_PATH||'/jessielu.github.io/',plugins:[react()],resolve:{alias:{'@':resolve(__dirname,'.')}},build:{cssCodeSplit:false,rollupOptions:{output:{entryFileNames:'script.js',chunkFileNames:'assets/[name]-[hash].js',assetFileNames:asset=>asset.names?.some(n=>n.endsWith('.css'))?'style.css':'assets/[name]-[hash][extname]'}}}});

@@ -4,21 +4,28 @@ Website: https://david555787.github.io/jessielu.github.io/
 
 ## File organization
 
-- `index.html`: homepage entry
-- `style.css`: published stylesheet (unchanged styles)
-- `script.js`: published JavaScript (same behavior, updated image path)
-- `favicon.ico`: ICO version of the existing favicon
+- `index.html`: the only HTML file, shared by every view
+- `style.css`: website styles
+- `script.js`: website interactions and hash navigation
+- `favicon.ico`: favicon
 - `.nojekyll`: GitHub Pages configuration
-- `assets/images/`: website portrait
-- `assets/favicon.svg`: original vector favicon used by the pages
-- `assets/source/`: editable React/Vite source and original component licenses
-- `assets/docs/`: prompt log, previous guide, and preserved original README
-- `about/`, `experience/`, `projects/`, `contact/`: existing page entrypoints; retained so URLs keep working
+- `assets/images/`: portrait
+- `assets/favicon.svg`: vector favicon
+- `assets/source/`: editable React/Vite source and component licenses
+- `assets/docs/`: prompt log and preserved earlier documentation
 
-This change reorganizes files only. Page text, layout, colors, animations, and interactions are preserved. GitHub Pages continues publishing from the main branch, root directory.
+## Navigation
 
-The previous README, including the local edits that existed before this reorganization, is preserved in `assets/docs/README-before-organization.md`.
+Home: `/#/` (the plain site URL also works)
+About: `/#/about`
+Experience: `/#/experience`
+Projects: `/#/projects`
+Contact: `/#/contact`
 
-## Editing
+The old `/about/`, `/experience/`, `/projects/`, and `/contact/` URLs have been removed. Use the new hash links above. Page content, styling, and animations are preserved.
 
-Editable files are under `assets/source/`. Published output is at the repository root. If rebuilding, preserve the published names `style.css` and `script.js` and update the page asset references accordingly. The older guide in `assets/docs/` records the previous folder layout.
+## Editing and rebuilding
+
+With Node.js 22+, open `assets/source/`, run `npm install`, then `npm run build`. Copy the contents of `assets/source/dist/` to the repository root and commit those changes. The build produces `index.html`, `script.js`, and `style.css` directly.
+
+`index.template` is the editable HTML template. The runner creates a temporary HTML entry during development/building and removes it afterward, so the repository retains only one HTML file. For a local development server, run `npm run dev` from `assets/source/`.

@@ -1,18 +1,31 @@
-# Jessie Lu portfolio — GitHub Pages edition
+# Jessie Lu — Personal Website
 
-This portable React website includes every portfolio page, the supplied photo, React Bits animations, dark mode by default, and the repaired native page links. It needs no paid hosting, server, database, or secrets.
+Website: https://david555787.github.io/jessielu.github.io/
 
-## Replace an existing GitHub Pages site
-1. Back up the old repository or keep its Git history.
-2. Put the CONTENTS of this folder in the repository root, including the hidden `.github` directory. Replace the old site files; retain an existing CNAME file if using a custom domain.
-3. In repository Settings → Pages, select GitHub Actions as the source.
-4. Commit to main or master. The included workflow builds and publishes the website.
+## File organization
 
-The workflow supports both username.github.io sites and project sites under /repository-name/. Do not upload the original Sites source ZIP as your GitHub Pages website: use this edition.
+- `index.html`: the only HTML file, shared by every view
+- `style.css`: website styles
+- `script.js`: website interactions and hash navigation
+- `favicon.ico`: favicon
+- `.nojekyll`: GitHub Pages configuration
+- `assets/images/`: portrait
+- `assets/favicon.svg`: vector favicon
+- `assets/source/`: editable React/Vite source and component licenses
+- `assets/docs/`: prompt log and preserved earlier documentation
 
-## Local preview
-Use Node.js 22 or newer, then `npm install` and `npm run dev`.
-Run `npm run build` to create `dist/`. For a manual project-site build, set BASE_PATH=/repository-name/.
+## Navigation
 
-## Editing
-Page content is in app/, shared interactions are in components/, and colors/layout are in app/globals.css. Your image and favicon are in public/. React Bits licensing is retained in components/reactbits/LICENSE.md.
+Home: `/#/` (the plain site URL also works)
+About: `/#/about`
+Experience: `/#/experience`
+Projects: `/#/projects`
+Contact: `/#/contact`
+
+The old `/about/`, `/experience/`, `/projects/`, and `/contact/` URLs have been removed. Use the new hash links above. Page content, styling, and animations are preserved.
+
+## Editing and rebuilding
+
+With Node.js 22+, open `assets/source/`, run `npm install`, then `npm run build`. Copy the contents of `assets/source/dist/` to the repository root and commit those changes. The build produces `index.html`, `script.js`, and `style.css` directly.
+
+`index.template` is the editable HTML template. The runner creates a temporary HTML entry during development/building and removes it afterward, so the repository retains only one HTML file. For a local development server, run `npm run dev` from `assets/source/`.
