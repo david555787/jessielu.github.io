@@ -132,6 +132,11 @@ nav a[aria-current="page"]::after { content: ""; position: absolute; left: 0; bo
 .bars i:nth-child(3) { height: 100px; }
 .project-card:hover .bars i:nth-child(odd) { transform: rotate(-8deg) translateY(-15px); }
 .code code { color: var(--accent); font: clamp(30px, 3vw, 48px)/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: -2px; transform: rotate(-7deg); }
+.currency-preview { position: relative; isolation: isolate; background: radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 48%), #100d0f; }
+.currency-preview::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .22; background: linear-gradient(color-mix(in srgb, var(--accent) 28%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent) 28%, transparent) 1px, transparent 1px); background-size: 34px 34px; }
+.currency-preview::after { content: "LIVE / FX"; position: absolute; top: 18px; right: 20px; color: #ff6c81; font: 11px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .16em; }
+.currency-preview img { width: min(48%, 210px); height: auto; display: block; filter: drop-shadow(0 20px 22px rgba(0,0,0,.66)) drop-shadow(0 0 16px color-mix(in srgb, var(--accent) 28%, transparent)); transform: rotate(-4deg); transition: transform .5s ease, filter .5s ease; }
+.project-card:hover .currency-preview img { transform: translateY(-9px) rotate(0) scale(1.04); filter: drop-shadow(0 25px 28px rgba(0,0,0,.7)) drop-shadow(0 0 24px color-mix(in srgb, var(--accent) 45%, transparent)); }
 .project-body { padding: 30px; }
 .project-body h2 { margin: 20px 0 15px; font-size: 30px; font-weight: 500; line-height: 1.2; letter-spacing: -1px; }
 details { margin-top: 25px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -194,5 +199,5 @@ details li { margin: 10px 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   #name-particles { display: none; }
   .particle-fallback { display: block; }
-  .portrait:hover img, .project-card:hover .bars i { transform: none; }
+  .portrait:hover img, .project-card:hover .bars i, .project-card:hover .currency-preview img { transform: none; }
 }
