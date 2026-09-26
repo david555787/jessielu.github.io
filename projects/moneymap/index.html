@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoneyMap — Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>MoneyMap</h1>
+      <p class="tagline">A simple expense tracker.</p>
+    </header>
+
+    <form id="expense-form">
+      <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+      <select id="category" required>
+        <option value="" disabled selected>Category</option>
+        <option>Food</option>
+        <option>Transport</option>
+        <option>Entertainment</option>
+        <option>Other</option>
+      </select>
+      <input type="text" id="note" placeholder="Note (optional)">
+      <input type="date" id="date" required>
+      <button type="submit">Add expense</button>
+    </form>
+
+    <p id="error-message" class="error" hidden></p>
+
+    <section class="summary">
+      <h2>Summary by category</h2>
+      <ul id="summary-list"></ul>
+    </section>
+
+    <section class="expenses">
+      <h2>Expenses</h2>
+      <ul id="expense-list"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
